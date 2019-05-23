@@ -13,6 +13,8 @@
 		52F0CFF12293E620008DD9AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F0CFF02293E620008DD9AD /* Assets.xcassets */; };
 		52F0CFF42293E620008DD9AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F0CFF22293E620008DD9AD /* LaunchScreen.storyboard */; };
 		52F0CFFF2293E620008DD9AD /* AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0CFFE2293E620008DD9AD /* AssignmentTests.swift */; };
+		52F0D00E22950FBB008DD9AD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D00D22950FBB008DD9AD /* TableViewCell.swift */; };
+		52F0D012229560EE008DD9AD /* ios-application-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F0D011229560ED008DD9AD /* ios-application-placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		52F0CFFA2293E620008DD9AD /* AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F0CFFE2293E620008DD9AD /* AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTests.swift; sourceTree = "<group>"; };
 		52F0D0002293E620008DD9AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52F0D00D22950FBB008DD9AD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		52F0D011229560ED008DD9AD /* ios-application-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-application-placeholder.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +83,9 @@
 			children = (
 				52F0CFE92293E61F008DD9AD /* AppDelegate.swift */,
 				52F0CFEB2293E61F008DD9AD /* ViewController.swift */,
+				52F0D00D22950FBB008DD9AD /* TableViewCell.swift */,
 				52F0CFED2293E61F008DD9AD /* Main.storyboard */,
+				52F0D011229560ED008DD9AD /* ios-application-placeholder.png */,
 				52F0CFF02293E620008DD9AD /* Assets.xcassets */,
 				52F0CFF22293E620008DD9AD /* LaunchScreen.storyboard */,
 				52F0CFF52293E620008DD9AD /* Info.plist */,
@@ -179,6 +185,7 @@
 			files = (
 				52F0CFF42293E620008DD9AD /* LaunchScreen.storyboard in Resources */,
 				52F0CFF12293E620008DD9AD /* Assets.xcassets in Resources */,
+				52F0D012229560EE008DD9AD /* ios-application-placeholder.png in Resources */,
 				52F0CFEF2293E61F008DD9AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F0D00E22950FBB008DD9AD /* TableViewCell.swift in Sources */,
 				52F0CFEC2293E61F008DD9AD /* ViewController.swift in Sources */,
 				52F0CFEA2293E61F008DD9AD /* AppDelegate.swift in Sources */,
 			);
