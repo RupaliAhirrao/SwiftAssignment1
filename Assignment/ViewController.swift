@@ -13,7 +13,6 @@ var tableRows = [Rows]()
 struct tableData : Codable {
     var title : String?
     var rows : [Rows]?
-
 }
 
 struct Rows : Codable {
@@ -25,8 +24,6 @@ struct Rows : Codable {
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     var myTableView : UITableView = UITableView()
-    var tableArray = [String] ()
-    var images = [String]()
     var navTitle : String?
     
     override func viewDidLoad() {
@@ -76,13 +73,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             guard let dataString = String(bytes: data!, encoding: String.Encoding.isoLatin1) else { return }
             print("responseString = \(dataString)")
             
-            //guard let data = data else { return }
-
             do {
                 let decoder = JSONDecoder()
                 let viewData = try decoder.decode(tableData.self, from: dataString.data(using: .utf8)!)
-                //let viewData = try decoder.decode(tableData.self, from: Data(dataString.utf8))
-               // let viewData = try decoder.decode(tableData.self, from: data)
                 print("title: ", viewData.title!)
                 if let navigationTitle = viewData.title {
                     self.navTitle = navigationTitle
@@ -90,15 +83,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     self.navTitle = ""
                 }
                 
+                tableRows.removeAll() // remove all objects from table array before appending new values
+                
                 for row in viewData.rows!{
+                    
                     let values = Rows(title: row.title,  description:row.description, imageHref: row.imageHref)
                     tableRows.append(values)
-                    if (row.imageHref != nil) {
-                        //self.images.append(row.imageHref!.absoluteString)
-                        self.images.append(row.imageHref!)
-                    } else {
-                        self.images.append("")
-                    }
                 }
                 
                 DispatchQueue.main.async {
@@ -145,7 +135,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     //Refresh Table view
     @objc func refresh() {
-        self.myTableView.reloadData()
+        parseData()
     }
     
 }

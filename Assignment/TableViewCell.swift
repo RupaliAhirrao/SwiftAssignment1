@@ -47,8 +47,7 @@ class TableViewCell: UITableViewCell {
         descriptionLabel.topAnchor.constraint(equalTo:self.titleLabel.bottomAnchor).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
-        //descriptionLabel.bottomAnchor.constraint(equalTo:self.containerView.bottomAnchor).isActive = true
-        
+        descriptionLabel.bottomAnchor.constraint(equalTo:self.containerView.bottomAnchor).isActive = true
         
         //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor).isActive = true
     }
@@ -102,21 +101,32 @@ class TableViewCell: UITableViewCell {
 
             if let cellTitle = cellItem.title {
                 titleLabel.text = " \(cellTitle) "
+            } else {
+                titleLabel.text = ""
             }
+            
             if let cellDescription = cellItem.description {
                 descriptionLabel.text = " \(cellDescription) "
                 
-                let height = self.heightForLabel(text: " \(cellDescription) ", font: UIFont.boldSystemFont(ofSize: 14), width: 280)
+                let height = self.heightForLabel(text: " \(cellDescription) ", font: UIFont.boldSystemFont(ofSize: 14), width: UIScreen.main.bounds.size.width - 100)
                
                 descriptionLabel.heightAnchor.constraint(equalToConstant:height).isActive = true
-                containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor).isActive = true
+                //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor).isActive = true
+                //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor, constant:0).isActive = true
+            } else {
+                descriptionLabel.text = ""
             }
+            
+            //call function to download images from internet
             if let img = cellItem.imageHref {
                 profileImageView.downloadImageFrom(link: img, contentMode: UIView.ContentMode.scaleAspectFit)
+            } else {
+                profileImageView.image = UIImage(named: "ios-application-placeholder.png")
             }
         }
     }
     
+    //calculate height for label with dynamic text
     func heightForLabel(text:String, font:UIFont, width:CGFloat) -> CGFloat
     {
         let label = UILabel()
@@ -125,10 +135,8 @@ class TableViewCell: UITableViewCell {
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = font
         label.text = text
-        
         label.sizeToFit()
         return label.frame.height
-        
     }
 }
 
