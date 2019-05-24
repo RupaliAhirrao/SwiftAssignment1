@@ -14,7 +14,11 @@
 		52F0CFF42293E620008DD9AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F0CFF22293E620008DD9AD /* LaunchScreen.storyboard */; };
 		52F0CFFF2293E620008DD9AD /* AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0CFFE2293E620008DD9AD /* AssignmentTests.swift */; };
 		52F0D00E22950FBB008DD9AD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D00D22950FBB008DD9AD /* TableViewCell.swift */; };
-		52F0D012229560EE008DD9AD /* ios-application-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 52F0D011229560ED008DD9AD /* ios-application-placeholder.png */; };
+		52F0D01B2297E19F008DD9AD /* ViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D01A2297E19F008DD9AD /* ViewControllerViewModel.swift */; };
+		52F0D0202297E389008DD9AD /* NetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D01F2297E389008DD9AD /* NetworkServices.swift */; };
+		52F0D0222297E39F008DD9AD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D0212297E39F008DD9AD /* NetworkManager.swift */; };
+		52F0D0252297E402008DD9AD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D0242297E402008DD9AD /* Constant.swift */; };
+		52F0D0272297F2DE008DD9AD /* FactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D0262297F2DE008DD9AD /* FactsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +43,11 @@
 		52F0CFFE2293E620008DD9AD /* AssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTests.swift; sourceTree = "<group>"; };
 		52F0D0002293E620008DD9AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52F0D00D22950FBB008DD9AD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		52F0D011229560ED008DD9AD /* ios-application-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios-application-placeholder.png"; sourceTree = "<group>"; };
+		52F0D01A2297E19F008DD9AD /* ViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerViewModel.swift; sourceTree = "<group>"; };
+		52F0D01F2297E389008DD9AD /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
+		52F0D0212297E39F008DD9AD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		52F0D0242297E402008DD9AD /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		52F0D0262297F2DE008DD9AD /* FactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +89,15 @@
 		52F0CFE82293E61F008DD9AD /* Assignment */ = {
 			isa = PBXGroup;
 			children = (
-				52F0CFE92293E61F008DD9AD /* AppDelegate.swift */,
-				52F0CFEB2293E61F008DD9AD /* ViewController.swift */,
-				52F0D00D22950FBB008DD9AD /* TableViewCell.swift */,
-				52F0CFED2293E61F008DD9AD /* Main.storyboard */,
-				52F0D011229560ED008DD9AD /* ios-application-placeholder.png */,
+				52F0D0282297F37A008DD9AD /* StoryBoard */,
+				52F0D0232297E3F4008DD9AD /* Constant */,
+				52F0D01D2297E354008DD9AD /* NetworkServices */,
+				52F0D01C2297E25D008DD9AD /* CustomCell */,
+				52F0D0192297E161008DD9AD /* AppDelegate */,
+				52F0D0172297E14B008DD9AD /* Model */,
+				52F0D0162297E142008DD9AD /* Controller */,
+				52F0D0152297E133008DD9AD /* VieModel */,
 				52F0CFF02293E620008DD9AD /* Assets.xcassets */,
-				52F0CFF22293E620008DD9AD /* LaunchScreen.storyboard */,
 				52F0CFF52293E620008DD9AD /* Info.plist */,
 			);
 			path = Assignment;
@@ -100,6 +110,72 @@
 				52F0D0002293E620008DD9AD /* Info.plist */,
 			);
 			path = AssignmentTests;
+			sourceTree = "<group>";
+		};
+		52F0D0152297E133008DD9AD /* VieModel */ = {
+			isa = PBXGroup;
+			children = (
+				52F0D01A2297E19F008DD9AD /* ViewControllerViewModel.swift */,
+			);
+			path = VieModel;
+			sourceTree = "<group>";
+		};
+		52F0D0162297E142008DD9AD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				52F0CFEB2293E61F008DD9AD /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		52F0D0172297E14B008DD9AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52F0D0262297F2DE008DD9AD /* FactsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52F0D0192297E161008DD9AD /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				52F0CFE92293E61F008DD9AD /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		52F0D01C2297E25D008DD9AD /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				52F0D00D22950FBB008DD9AD /* TableViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		52F0D01D2297E354008DD9AD /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				52F0D01F2297E389008DD9AD /* NetworkServices.swift */,
+				52F0D0212297E39F008DD9AD /* NetworkManager.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		52F0D0232297E3F4008DD9AD /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				52F0D0242297E402008DD9AD /* Constant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		52F0D0282297F37A008DD9AD /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				52F0CFF22293E620008DD9AD /* LaunchScreen.storyboard */,
+				52F0CFED2293E61F008DD9AD /* Main.storyboard */,
+			);
+			path = StoryBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +261,6 @@
 			files = (
 				52F0CFF42293E620008DD9AD /* LaunchScreen.storyboard in Resources */,
 				52F0CFF12293E620008DD9AD /* Assets.xcassets in Resources */,
-				52F0D012229560EE008DD9AD /* ios-application-placeholder.png in Resources */,
 				52F0CFEF2293E61F008DD9AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,9 +279,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F0D0252297E402008DD9AD /* Constant.swift in Sources */,
+				52F0D0222297E39F008DD9AD /* NetworkManager.swift in Sources */,
+				52F0D0202297E389008DD9AD /* NetworkServices.swift in Sources */,
 				52F0D00E22950FBB008DD9AD /* TableViewCell.swift in Sources */,
 				52F0CFEC2293E61F008DD9AD /* ViewController.swift in Sources */,
+				52F0D0272297F2DE008DD9AD /* FactsModel.swift in Sources */,
 				52F0CFEA2293E61F008DD9AD /* AppDelegate.swift in Sources */,
+				52F0D01B2297E19F008DD9AD /* ViewControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

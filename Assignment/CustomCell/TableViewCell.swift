@@ -10,6 +10,8 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
+    var labelHeight : CGFloat?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -49,6 +51,7 @@ class TableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
+    //MARK: Label creation
     let profileImageView:UIImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill // image will never be strecthed vertially or horizontally
@@ -88,7 +91,8 @@ class TableViewCell: UITableViewCell {
         return view
     }()
     
-    var cellDetails:Rows? {
+    //MARK: Other methods
+    var cellDetails:FactsModel? {
         didSet {
             guard let cellItem = cellDetails else {return}
 
@@ -102,7 +106,8 @@ class TableViewCell: UITableViewCell {
                 descriptionLabel.text = " \(cellDescription) "
                 
                 let height = self.heightForLabel(text: " \(cellDescription) ", font: UIFont.boldSystemFont(ofSize: 14), width: UIScreen.main.bounds.size.width - 100)
-               
+                labelHeight = height
+                
                 descriptionLabel.heightAnchor.constraint(equalToConstant:height).isActive = true
                 //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor).isActive = true
                 //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor, constant:0).isActive = true
@@ -114,7 +119,7 @@ class TableViewCell: UITableViewCell {
             if let img = cellItem.imageHref {
                 profileImageView.downloadImageFrom(link: img, contentMode: UIView.ContentMode.scaleAspectFit)
             } else {
-                profileImageView.image = UIImage(named: "ios-application-placeholder.png")
+                profileImageView.image = UIImage(named: "Image-1.png")
             }
         }
     }
@@ -138,7 +143,7 @@ extension UIImageView {
     func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
         
         if self.image == nil{
-            self.image = UIImage(named: "ios-application-placeholder.png")
+            self.image = UIImage(named: "Image-1.png")
         }
         
         URLSession.shared.dataTask( with: NSURL(string:link)! as URL, completionHandler: {
