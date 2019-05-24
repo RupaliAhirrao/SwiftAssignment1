@@ -69,14 +69,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             else { return }
         
         URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
+            guard let data1 = data else { return }
             
-            guard let dataString = String(bytes: data!, encoding: String.Encoding.isoLatin1) else { return }
+            guard let dataString = String(bytes: data1, encoding: String.Encoding.isoLatin1) else { return }
             print("responseString = \(dataString)")
             
             do {
                 let decoder = JSONDecoder()
-                let viewData = try decoder.decode(tableData.self, from: dataString.data(using: .utf8)!)
-                print("title: ", viewData.title!)
+                guard let dataVal = dataString.data(using: .utf8) else { return } // to avoid forced unwrapping
+                let viewData = try decoder.decode(tableData.self, from: dataVal) //dataString.data(using: .utf8)!)
+                
                 if let navigationTitle = viewData.title {
                     self.navTitle = navigationTitle
                 }else {
@@ -85,8 +87,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 tableRows.removeAll() // remove all objects from table array before appending new values
                 
-                for row in viewData.rows!{
-                    
+                guard let viewRows = viewData.rows else { return } // to avoid forced unwrapping
+                for row in viewRows {  //viewData.rows!{
                     let values = Rows(title: row.title,  description:row.description, imageHref: row.imageHref)
                     tableRows.append(values)
                 }
@@ -108,7 +110,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         // Get main screen bounds
         let screenSize: CGRect = UIScreen.main.bounds
-        
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         
@@ -130,7 +131,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myTableView.leadingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         myTableView.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         myTableView.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-    
     }
 
     //Refresh Table view

@@ -25,31 +25,24 @@ class TableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.contentView.addSubview(profileImageView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(descriptionLabel)
-        self.contentView.addSubview(containerView)
+        self.contentView.addSubview(titleLabel)
+        self.contentView.addSubview(descriptionLabel)
         
         profileImageView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant:80).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant:80).isActive = true
         
-        //containerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 0)   //constraint(equalToConstant:0).isActive = true
-        containerView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
-        containerView.leadingAnchor.constraint(equalTo:self.profileImageView.trailingAnchor, constant:10).isActive = true
-        containerView.trailingAnchor.constraint(equalTo:self.contentView.trailingAnchor, constant:-10).isActive = true
-        //containerView.heightAnchor.constraint(equalToConstant:80).isActive = true
+        titleLabel.topAnchor.constraint(equalTo:topAnchor, constant:5).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo:self.profileImageView.trailingAnchor, constant:10).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo:trailingAnchor, constant:-10).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
         
-        titleLabel.topAnchor.constraint(equalTo:self.containerView.topAnchor).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
-        
-        descriptionLabel.topAnchor.constraint(equalTo:self.titleLabel.bottomAnchor).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo:self.containerView.leadingAnchor).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo:self.containerView.trailingAnchor).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo:self.containerView.bottomAnchor).isActive = true
-        
-        //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo:topAnchor, constant:30).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo:self.profileImageView.trailingAnchor, constant:10).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo:trailingAnchor, constant:-10).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,7 +53,7 @@ class TableViewCell: UITableViewCell {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill // image will never be strecthed vertially or horizontally
         img.translatesAutoresizingMaskIntoConstraints = false // enable autolayout
-        img.layer.cornerRadius = 35
+        img.layer.cornerRadius = 5
         img.clipsToBounds = true
         return img
     }()
