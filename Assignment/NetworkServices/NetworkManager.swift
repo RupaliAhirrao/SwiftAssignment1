@@ -19,11 +19,8 @@ class NetworkManager {
             guard let data1 = data else { return }
             
             guard let dataString = String(bytes: data1, encoding: String.Encoding.isoLatin1) else { return }
-            //print("responseString = \(dataString)")
             
             do {
-                
-                // let jsonData = JSONSerialization.jsonObject(with: data, options: nil) as? [String: Any]
                 let decoder = JSONDecoder()
                 guard let dataVal = dataString.data(using: .utf8) else { return } // to avoid forced unwrapping
                 let viewData = try decoder.decode(tableData.self, from: dataVal) //dataString.data(using: .utf8)!)
