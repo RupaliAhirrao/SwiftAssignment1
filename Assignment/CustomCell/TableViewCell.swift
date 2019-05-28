@@ -99,7 +99,7 @@ class TableViewCell: UITableViewCell {
             if let cellTitle = cellItem.title {
                 titleLabel.text = " \(cellTitle) "
             } else {
-                titleLabel.text = ""
+                titleLabel.text = Constant.EMPTYSTRING
             }
             
             if let cellDescription = cellItem.description {
@@ -112,14 +112,14 @@ class TableViewCell: UITableViewCell {
                 //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor).isActive = true
                 //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor, constant:0).isActive = true
             } else {
-                descriptionLabel.text = ""
+                descriptionLabel.text = Constant.EMPTYSTRING
             }
             
             //call function to download images from internet
             if let img = cellItem.imageHref {
                 profileImageView.downloadImageFrom(link: img, contentMode: UIView.ContentMode.scaleAspectFit)
             } else {
-                profileImageView.image = UIImage(named: "Image-1.png")
+                profileImageView.image = UIImage(named: Constant.PROFILEIMAGE)
             }
         }
     }
@@ -143,7 +143,7 @@ extension UIImageView {
     func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
         
         if self.image == nil{
-            self.image = UIImage(named: "Image-1.png")
+            self.image = UIImage(named: Constant.PROFILEIMAGE)
         }
         
         URLSession.shared.dataTask( with: NSURL(string:link)! as URL, completionHandler: {

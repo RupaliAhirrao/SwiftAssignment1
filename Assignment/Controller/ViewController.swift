@@ -62,7 +62,7 @@ class ViewController: UIViewController  {
         myTableView.dataSource = self
         myTableView.delegate = self
         
-        myTableView.register(TableViewCell.self, forCellReuseIdentifier: "customCell")
+        myTableView.register(TableViewCell.self, forCellReuseIdentifier: Constant.CELLIDENTIFIER)
         self.view.addSubview(myTableView)
         
         myTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,7 +91,7 @@ extension ViewController: ViewControllerDelegate {
             if let navigationTitle = array.title {
                 self.navigationItem.title = navigationTitle
             }else {
-                self.navTitle = ""
+                self.navTitle = Constant.EMPTYSTRING
             }
             tableRows = array.rows!
             self.myTableView.reloadData()
@@ -127,7 +127,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CELLIDENTIFIER, for: indexPath) as! TableViewCell
         cell.cellDetails = tableRows[indexPath.row]
         return cell
     }
