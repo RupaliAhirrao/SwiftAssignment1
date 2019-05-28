@@ -104,7 +104,7 @@ class TableViewCell: UITableViewCell {
             
             if let cellDescription = cellItem.description {
                 descriptionLabel.text = " \(cellDescription) "
-                let height = Utility.heightForLabel(text: " \(cellDescription) ", font: UIFont.boldSystemFont(ofSize: 14), width: UIScreen.main.bounds.size.width - 100)
+                let height = Utility.heightForLabel(text: " \(cellDescription) ", font: UIFont.boldSystemFont(ofSize: 14), width: UIScreen.main.bounds.size.width - Constant.CONTENTMARGIN)
                 labelHeight = height
                 descriptionLabel.heightAnchor.constraint(equalToConstant:height).isActive = true
             } else {

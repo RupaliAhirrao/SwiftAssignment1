@@ -16,5 +16,7 @@ class Constant {
     static let PROFILEIMAGE = "Image-1.png"
     static let IMAGEVIEWHEIGHT: CGFloat = 80.0
     static let DEFAULTROWHEIGHT: CGFloat = 90.0
+    static let CONTENTMARGIN: CGFloat = 100.0
+    static let TOPMARGIN: CGFloat = 40.0
 }
 

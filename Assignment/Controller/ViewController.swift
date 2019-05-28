@@ -135,7 +135,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CELLIDENTIFIER, for: indexPath) as! TableViewCell
         cell.cellDetails = tableRows[indexPath.row]
         if let cellDesc = cell.cellDetails?.description {
-            self.rowHeight = Utility.heightForLabel(text: cellDesc, font: UIFont.boldSystemFont(ofSize: 14), width: UIScreen.main.bounds.size.width - 100) + 40.0
+            self.rowHeight = Utility.heightForLabel(text: cellDesc, font: UIFont.boldSystemFont(ofSize: 14), width: UIScreen.main.bounds.size.width - Constant.CONTENTMARGIN) + Constant.TOPMARGIN
         } else {
             self.rowHeight = Constant.DEFAULTROWHEIGHT
         }
