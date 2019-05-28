@@ -16,6 +16,7 @@ class ViewController: UIViewController  {
     var navTitle : String?
     var viewModel: ViewControllerViewModel?
     var indicator: UIActivityIndicatorView!
+    var rowHeight: CGFloat = 0.0
     
 //MARK: View Controller Life cycle methods
     override func viewDidLoad() {
@@ -121,7 +122,7 @@ extension ViewController: ViewControllerDelegate {
 
 //MARK: Table View Delegate methods
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -133,10 +134,19 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CELLIDENTIFIER, for: indexPath) as! TableViewCell
         cell.cellDetails = tableRows[indexPath.row]
+        if let cellDesc = cell.cellDetails?.description {
+            self.rowHeight = Utility.heightForLabel(text: cellDesc, font: UIFont.boldSystemFont(ofSize: 14), width: UIScreen.main.bounds.size.width - 100) + 40.0
+        } else {
+            self.rowHeight = Constant.DEFAULTROWHEIGHT
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        if (self.rowHeight < Constant.IMAGEVIEWHEIGHT) {
+            return Constant.DEFAULTROWHEIGHT
+        } else {
+            return self.rowHeight
+        }
     }
 }

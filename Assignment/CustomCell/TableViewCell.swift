@@ -32,8 +32,8 @@ class TableViewCell: UITableViewCell {
         
         profileImageView.centerYAnchor.constraint(equalTo:self.contentView.centerYAnchor).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo:self.contentView.leadingAnchor, constant:10).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant:80).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant:80).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant:Constant.IMAGEVIEWHEIGHT).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant:Constant.IMAGEVIEWHEIGHT).isActive = true
         
         titleLabel.topAnchor.constraint(equalTo:topAnchor, constant:5).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo:self.profileImageView.trailingAnchor, constant:10).isActive = true
@@ -104,13 +104,9 @@ class TableViewCell: UITableViewCell {
             
             if let cellDescription = cellItem.description {
                 descriptionLabel.text = " \(cellDescription) "
-                
-                let height = self.heightForLabel(text: " \(cellDescription) ", font: UIFont.boldSystemFont(ofSize: 14), width: UIScreen.main.bounds.size.width - 100)
+                let height = Utility.heightForLabel(text: " \(cellDescription) ", font: UIFont.boldSystemFont(ofSize: 14), width: UIScreen.main.bounds.size.width - 100)
                 labelHeight = height
-                
                 descriptionLabel.heightAnchor.constraint(equalToConstant:height).isActive = true
-                //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor).isActive = true
-                //containerView.bottomAnchor.constraint(equalTo:self.descriptionLabel.bottomAnchor, constant:0).isActive = true
             } else {
                 descriptionLabel.text = Constant.EMPTYSTRING
             }
@@ -123,21 +119,9 @@ class TableViewCell: UITableViewCell {
             }
         }
     }
-    
-    //calculate height for label with dynamic text
-    func heightForLabel(text:String, font:UIFont, width:CGFloat) -> CGFloat
-    {
-        let label = UILabel()
-        label.frame.size = CGSize(width: width, height:CGFloat.greatestFiniteMagnitude)
-        label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.font = font
-        label.text = text
-        label.sizeToFit()
-        return label.frame.height
-    }
 }
 
+//MARK: UIImageView Extension
 //to Download images from link
 extension UIImageView {
     func downloadImageFrom(link:String, contentMode: UIView.ContentMode) {
