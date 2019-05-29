@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         myTableView.frame.size = CGSize(width: screenWidth, height: screenHeight)
         myTableView.dataSource = self
         myTableView.delegate = self
-        myTableView.register(TableViewCell.self, forCellReuseIdentifier: Constant.CELLIDENTIFIER)
+        myTableView.register(CustomTableCell.self, forCellReuseIdentifier: Constant.CELLIDENTIFIER)
         self.view.addSubview(myTableView)
         myTableView.translatesAutoresizingMaskIntoConstraints = false
         myTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -112,9 +112,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         /*let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CELLIDENTIFIER,
-         for: indexPath) as! TableViewCell */
+         for: indexPath) as! CustomTableCell */
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.CELLIDENTIFIER,
-                                                       for: indexPath) as? TableViewCell else {
+                                                       for: indexPath) as? CustomTableCell else {
             return UITableViewCell()
         }
         cell.cellDetails = tableRows[indexPath.row]

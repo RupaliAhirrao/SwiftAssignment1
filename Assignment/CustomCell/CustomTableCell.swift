@@ -1,5 +1,5 @@
 //
-//  TableViewCell.swift
+//  CustomTableCell.swift
 //  Assignment
 //
 //  Created by test on 22/05/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class CustomTableCell: UITableViewCell {
     var labelHeight: CGFloat?
     override func awakeFromNib() {
         super.awakeFromNib()

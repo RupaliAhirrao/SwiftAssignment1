@@ -58,7 +58,7 @@ class AssignmentTests: XCTestCase {
     }
     func testTableViewCellHasReuseIdentifier() {
         let cell = viewControllerUnderTest.myTableView.dequeueReusableCell(withIdentifier: "customCell")
-        //(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? TableViewCell
+        //(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? CustomTableCell
         let actualReuseIdentifer = cell?.reuseIdentifier
         let expectedReuseIdentifier = "customCell"
         XCTAssertEqual(actualReuseIdentifer, expectedReuseIdentifier)
