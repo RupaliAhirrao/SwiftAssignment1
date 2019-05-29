@@ -20,6 +20,7 @@ class AssignmentTests: XCTestCase {
         
         viewControllerUnderTest.setupView()
         viewControllerUnderTest.createTableView()
+        viewControllerUnderTest.createServiceCall()
     }
     
     override func tearDown() {
@@ -62,23 +63,26 @@ class AssignmentTests: XCTestCase {
         XCTAssertTrue(viewControllerUnderTest.responds(to: #selector(viewControllerUnderTest.tableView(_:cellForRowAt:))))
     }
     
-    //    func testTableViewCellHasReuseIdentifier() {
-    //        let cell = viewControllerUnderTest.myTableView.dequeueReusableCell(withIdentifier: "customCell", for: IndexPath(row: 0, section: 0)) as? TableViewCell
-    //        //let cell = viewControllerUnderTest.tableView(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? TableViewCell
-    //        let actualReuseIdentifer = cell?.reuseIdentifier
-    //        let expectedReuseIdentifier = "customCell"
-    //        XCTAssertEqual(actualReuseIdentifer, expectedReuseIdentifier)
-    //    }
-    //
-    //    func testTableCellHasCorrectTitleLabelText() {
-    //        let cell0 = viewControllerUnderTest.tableView(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? TableViewCell
-    //        XCTAssertNotNil(cell0?.titleLabel.text)
-    //        let cell1 = viewControllerUnderTest.tableView(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 1, section: 0)) as? TableViewCell
-    //        XCTAssertNotNil(cell1?.titleLabel.text)
-    //        let cell2 = viewControllerUnderTest.tableView(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 2, section: 0)) as? TableViewCell
-    //        XCTAssertNotNil(cell2?.titleLabel.text)
-    //    }
-    //
+        func testTableViewCellHasReuseIdentifier() {
+            //let cell = viewControllerUnderTest.myTableView.dequeueReusableCell(withIdentifier: "customCell", for: IndexPath(row: 0, section: 0)) as? TableViewCell
+
+            //let cell = viewControllerUnderTest.tableView(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? TableViewCell
+            
+            let cell = viewControllerUnderTest.myTableView.dequeueReusableCell(withIdentifier: "customCell")     // (viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? TableViewCell
+            let actualReuseIdentifer = cell?.reuseIdentifier
+            let expectedReuseIdentifier = "customCell"
+            XCTAssertEqual(actualReuseIdentifer, expectedReuseIdentifier)
+        }
+    
+//        func testTableCellHasCorrectTitleLabelText() {
+//            let cell0 = viewControllerUnderTest.tableView(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? TableViewCell
+//            XCTAssertNotNil(cell0?.titleLabel.text)
+//            let cell1 = viewControllerUnderTest.tableView(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 1, section: 0)) as? TableViewCell
+//            XCTAssertNotNil(cell1?.titleLabel.text)
+//            let cell2 = viewControllerUnderTest.tableView(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 2, section: 0)) as? TableViewCell
+//            XCTAssertNotNil(cell2?.titleLabel.text)
+//        }
+    
     //    func testTableCellHasCorrectDescriptionLabelText() {
     //        let cell0 = viewControllerUnderTest.tableView(viewControllerUnderTest.myTableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? TableViewCell
     //        XCTAssertNotNil(cell0?.descriptionLabel.text)

@@ -20,6 +20,7 @@
 		52F0D0252297E402008DD9AD /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D0242297E402008DD9AD /* Constant.swift */; };
 		52F0D0272297F2DE008DD9AD /* FactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D0262297F2DE008DD9AD /* FactsModel.swift */; };
 		52F0D039229D38DA008DD9AD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D038229D38DA008DD9AD /* Utility.swift */; };
+		52F0D03C229E426C008DD9AD /* NetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F0D03B229E426C008DD9AD /* NetworkTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		52F0D0242297E402008DD9AD /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		52F0D0262297F2DE008DD9AD /* FactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsModel.swift; sourceTree = "<group>"; };
 		52F0D038229D38DA008DD9AD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		52F0D03B229E426C008DD9AD /* NetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				52F0CFFE2293E620008DD9AD /* AssignmentTests.swift */,
+				52F0D03B229E426C008DD9AD /* NetworkTests.swift */,
 				52F0D0002293E620008DD9AD /* Info.plist */,
 			);
 			path = AssignmentTests;
@@ -306,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52F0D03C229E426C008DD9AD /* NetworkTests.swift in Sources */,
 				52F0CFFF2293E620008DD9AD /* AssignmentTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
