@@ -11,10 +11,9 @@ import UIKit
 
 class Utility {
     //calculate height for label with dynamic text
-    class func heightForLabel(text:String, font:UIFont, width:CGFloat) -> CGFloat
-    {
+    class func heightForLabel(text: String, font: UIFont, width: CGFloat) -> CGFloat {
         let label = UILabel()
-        label.frame.size = CGSize(width: width, height:CGFloat.greatestFiniteMagnitude)
+        label.frame.size = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.font = font

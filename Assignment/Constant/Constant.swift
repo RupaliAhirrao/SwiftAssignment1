@@ -19,4 +19,3 @@ class Constant {
     static let CONTENTMARGIN: CGFloat = 100.0
     static let TOPMARGIN: CGFloat = 40.0
 }
-

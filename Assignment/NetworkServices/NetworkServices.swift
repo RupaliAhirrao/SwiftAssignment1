@@ -8,11 +8,9 @@
 
 import Foundation
 
-
 class NetworkServices {
-    
-    func callFactService(completionHandler: @escaping (_ arrayData: tableData?,_ error: Error?) -> Void) {
-        NetworkManager.callFactsURL() { (dictData, error) in
+    func callFactService(completionHandler: @escaping (_ arrayData: TableData?, _ error: Error?) -> Void) {
+        NetworkManager.callFactsURL { (dictData, error) in
             completionHandler(dictData, error)
         }
     }

@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct FactsModel : Codable {
-    var title : String?
-    var description : String?
+struct FactsModel: Codable {
+    var title: String?
+    var description: String?
     var imageHref: String?
 }
 
-struct tableData : Codable {
-    var title : String?
-    var rows : [FactsModel]?
+struct TableData: Codable {
+    var title: String?
+    var rows: [FactsModel]?
 }
