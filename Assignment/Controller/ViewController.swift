@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     var myTableView: UITableView = UITableView()
     var navTitle: String?
     var viewModel: ViewControllerViewModel?
-    var indicator: UIActivityIndicatorView!
     var rowHeight: CGFloat = 0.0
 // MARK: View Controller Life cycle methods
     override func viewDidLoad() {
@@ -32,7 +31,6 @@ class ViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refresh))
         navigationItem.rightBarButtonItem = refreshButton
-        indicator = UIActivityIndicatorView()
     }
     //method for calling service request function
     func createServiceCall() {
@@ -40,7 +38,6 @@ class ViewController: UIViewController {
         viewModel = ViewControllerViewModel()
         viewModel?.attachView(delegate: self)
         viewModel?.apiServices = apiservices
-        self.startLoading()
         viewModel?.callServiceForFactsData()
     }
     //programmatically creation of table view
@@ -56,6 +53,7 @@ class ViewController: UIViewController {
         myTableView.register(CustomTableCell.self, forCellReuseIdentifier: Constant.CELLIDENTIFIER)
         self.view.addSubview(myTableView)
         myTableView.translatesAutoresizingMaskIntoConstraints = false
+        //Programmatic Auto Layout using Auto Layout Anchors
         myTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         myTableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         myTableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
@@ -83,22 +81,6 @@ extension ViewController: ViewControllerDelegate {
             self.myTableView.reloadData()
         }
     }
-    func startLoading() {
-        //var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
-        //indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
-        //indicator.center = uiView.center
-        indicator.hidesWhenStopped = true
-        indicator.style = UIActivityIndicatorView.Style.gray
-            //UIActivityIndicatorViewStyle.
-        self.myTableView.addSubview(indicator)
-        indicator.startAnimating()
-    }
-    func stopLoading() {
-        indicator.stopAnimating()
-        indicator.removeFromSuperview()
-    }
-    func showAlert(message: String) {
-    }
 }
 
 // MARK: Table View Delegate methods
@@ -120,6 +102,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         cell.cellDetails = tableRows[indexPath.row]
         if let cellDesc = cell.cellDetails?.description {
             let rowWidth = UIScreen.main.bounds.size.width - Constant.CONTENTMARGIN
+            //get dynamic height for description label
             self.rowHeight = Utility.heightForLabel(text: cellDesc, font: UIFont.boldSystemFont(ofSize: 14),
                                                     width: rowWidth) + Constant.TOPMARGIN
         } else {

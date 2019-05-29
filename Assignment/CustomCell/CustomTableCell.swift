@@ -26,6 +26,7 @@ class CustomTableCell: UITableViewCell {
         self.contentView.addSubview(profileImageView)
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(descriptionLabel)
+        //Programmatic Auto Layout using Auto Layout Anchors
         profileImageView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
         profileImageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: Constant.IMAGEVIEWHEIGHT).isActive = true
@@ -74,13 +75,6 @@ class CustomTableCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    let containerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.white
-        view.clipsToBounds = true // this will make sure its children do not go out of the boundary
-        return view
-    }()
     // MARK: Other methods
     var cellDetails: FactsModel? {
         didSet {
@@ -101,10 +95,11 @@ class CustomTableCell: UITableViewCell {
             } else {
                 descriptionLabel.text = Constant.EMPTYSTRING
             }
-            //call function to download images from internet
             if let img = cellItem.imageHref {
+                //call function to download images from internet
                 profileImageView.downloadImageFrom(link: img, contentMode: UIView.ContentMode.scaleAspectFit)
             } else {
+                //show placeholder image if Image URL is not available
                 profileImageView.image = UIImage(named: Constant.PROFILEIMAGE)
             }
         }

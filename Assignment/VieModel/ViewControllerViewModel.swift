@@ -10,9 +10,6 @@ import Foundation
 
 protocol ViewControllerDelegate: NSObjectProtocol {
     func updateView(array: TableData)
-    func startLoading()
-    func stopLoading()
-    func showAlert(message: String)
 }
 
 class ViewControllerViewModel {
@@ -28,14 +25,9 @@ class ViewControllerViewModel {
     func callServiceForFactsData() {
         //delegate?.startLoading()
         apiServices?.callFactService(completionHandler: { (dictData, _ error) in
-            //print(array)
             if let arrayData = dictData {
                  self.delegate?.updateView(array: arrayData)
-            } else {
-                self.delegate?.showAlert(message: "Error")
             }
-            //self.delegate?.stopLoading()
         })
-        self.delegate?.stopLoading()
     }
 }
